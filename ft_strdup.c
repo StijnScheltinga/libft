@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sschelti <sschelti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 14:59:28 by sschelti          #+#    #+#             */
-/*   Updated: 2022/10/14 14:46:52 by sschelti         ###   ########.fr       */
+/*   Created: 2022/10/13 19:46:50 by sschelti          #+#    #+#             */
+/*   Updated: 2022/10/14 15:16:53 by sschelti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char	*dst, const char *src, size_t size)
+char	*ft_strdup(const char *s)
 {
-	unsigned long	i;	
+	char	*str;
+	int		i;
 
+	i = ft_strlen(s);
+	str = malloc(i + 1);
+	if (str == 0)
+		return (str);
 	i = 0;
-	if (!dst || size < 0)
-		return (0);
-	if (size == 0)	
-		return ((size_t) ft_strlen(src));
-	if (size > 0)
+	while (s[i])
 	{
-		while (i < (size - 1))
-		{
-			dst[i] = src[i];
-			i++;
-		}
+		str[i] = s[i];
+		i++;
 	}
-	dst[i] = '\0';
-	return ((size_t) ft_strlen(src));
+	str[i] = '\0';
+	return (str);
 }
+
+// int main()
+// {
+// 	const char	str[] = "hallo";
+// 	printf("%s", ft_strdup(str));
+// }

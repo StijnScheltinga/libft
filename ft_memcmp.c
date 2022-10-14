@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sschelti <sschelti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 17:57:56 by sschelti          #+#    #+#             */
-/*   Updated: 2022/10/14 12:22:51 by sschelti         ###   ########.fr       */
+/*   Created: 2022/10/13 14:49:03 by sschelti          #+#    #+#             */
+/*   Updated: 2022/10/13 15:09:22 by sschelti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
-void	*ft_memchr(const void *s, int c, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	unsigned char	*str;
+	unsigned char	*ptr1;
+	unsigned char	*ptr2;
 	unsigned long	i;
 
-	str = (unsigned char *)s;
+	ptr1 = (unsigned char *) s1;
+	ptr2 = (unsigned char *) s2;
 	i = 0;
 	while (i < n)
 	{
-		if (str[i] == (unsigned char) c)
-		{
-			return (str + i);
-		}
+		if (ptr1[i] != ptr2[i])
+			return (ptr1[i] - ptr2[i]);
 		i++;
 	}
 	return (0);
@@ -33,6 +32,8 @@ void	*ft_memchr(const void *s, int c, size_t n)
 
 // int main()
 // {
-// 	char    str[] = "hallo";
-//     printf("%s\n", memchr(str, 2 + 256, 3));
+// 	const char arr1[] = "abcdefghijklmnop";
+// 	const char arr2[] = "abedefghijklmnop";
+// 	printf("%d\n", ft_memcmp(arr1, arr2, 3));
+// 	// printf("echte: %d", memcmp(arr1, arr2, 10));
 // }
