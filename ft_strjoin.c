@@ -1,35 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sschelti <sschelti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 11:00:37 by sschelti          #+#    #+#             */
-/*   Updated: 2022/10/20 17:38:30 by sschelti         ###   ########.fr       */
+/*   Created: 2022/10/17 13:42:27 by sschelti          #+#    #+#             */
+/*   Updated: 2022/10/17 14:38:15 by sschelti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int ch)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
+	char	*join;
+	int		len;
 	int		i;
+	int		j;
 
+	len = ft_strlen(s1) + ft_strlen(s2) + 1;
+	join = malloc(sizeof(char) * len);
+	if (!join)
+		return (join);
 	i = 0;
-	while (str[i] != '\0')
+	j = 0;
+	while (s1[i])
 	{
-		if (str[i] == (char) ch)
-			return ((char *) str + i);
+		join[i] = s1[i];
 		i++;
 	}
-	if ((char) ch == '\0')
-		return ((char *) str + i);
-	return (0);
+	while (s2[j])
+	{
+		join[i + j] = s2[j];
+		j++;
+	}
+	join[i + j] = '\0';
+	return (join);
 }
 
 // int main()
 // {
-//     char str[] = "";
-//     printf("%s", ft_strchr(str, '\0'));
+// 	printf("%s", ft_strjoin("", ""));
 // }

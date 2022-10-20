@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sschelti <sschelti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 11:00:37 by sschelti          #+#    #+#             */
-/*   Updated: 2022/10/20 17:38:30 by sschelti         ###   ########.fr       */
+/*   Created: 2022/10/17 14:29:33 by sschelti          #+#    #+#             */
+/*   Updated: 2022/10/17 15:45:08 by sschelti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int ch)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		i;
+	int		j;
+	char	*ret;
 
 	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] == (char) ch)
-			return ((char *) str + i);
+	j = ft_strlen(s1) - 1;
+	while (ft_strchr(set, s1[i]))
 		i++;
-	}
-	if ((char) ch == '\0')
-		return ((char *) str + i);
-	return (0);
+	while (ft_strrchr(set, s1[j]))
+		j--;
+	ret = ft_substr(s1, i, j - i + 1);
+	return (ret);
 }
 
 // int main()
 // {
-//     char str[] = "";
-//     printf("%s", ft_strchr(str, '\0'));
+// 	printf("%s", ft_strtrim("halloNoheEhalko", "laho"));
 // }
