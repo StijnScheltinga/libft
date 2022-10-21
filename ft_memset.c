@@ -6,7 +6,7 @@
 /*   By: sschelti <sschelti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 17:06:05 by sschelti          #+#    #+#             */
-/*   Updated: 2022/10/06 17:29:38 by sschelti         ###   ########.fr       */
+/*   Updated: 2022/10/21 13:47:38 by sschelti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memset(void *str, char a, size_t len)
 	unsigned char	*p;
 
 	i = 0;
-	p = str;
+	p = (unsigned char *) str;
 	while (i < len)
 	{
 		*p = a;

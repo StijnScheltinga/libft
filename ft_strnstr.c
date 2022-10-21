@@ -6,7 +6,7 @@
 /*   By: sschelti <sschelti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:55:54 by sschelti          #+#    #+#             */
-/*   Updated: 2022/10/20 18:26:33 by sschelti         ###   ########.fr       */
+/*   Updated: 2022/10/21 13:41:59 by sschelti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,16 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		return ((char *) haystack);
 	while ((i < len) && haystack[i])
 	{
-		if (haystack[i] == needle[j])
+		while (haystack[i] == needle[j] && i < len)
 		{
-			if ((j + 1) == ft_strlen(needle))
+			if (needle[j + 1] == '\0')
 				return ((char *) &haystack[i - j]);
+			i++;
 			j++;
 		}
+		i = i - j;
+		j = 0;
 		i++;
-		if (haystack[i] != needle[j])
-			j = 0;
 	}
 	return (NULL);
 }
@@ -39,7 +40,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 // int main()
 // {
 // const char arr1[] = "fhdshaakhallofkjhsfhallojksh";
-// const char arr2[] = "hallo";
-// printf("%s\n", ft_strnstr(arr1, arr2, -1));
+// const char arr2[] = "halloj";
+// printf("%s\n", ft_strnstr(arr1, arr2, 70));
 // // printf("echte: %s", strnstr(arr1, arr2, -1));
 // }

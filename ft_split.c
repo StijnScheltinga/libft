@@ -6,7 +6,7 @@
 /*   By: sschelti <sschelti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 16:40:36 by sschelti          #+#    #+#             */
-/*   Updated: 2022/10/20 17:38:08 by sschelti         ###   ########.fr       */
+/*   Updated: 2022/10/20 19:43:58 by sschelti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static	int	ft_len(char const *s, char c, int i)
 	int	a;
 
 	a = 0;
-	while (s[i] != c)
+	while (s[i] != c && s[i])
 	{
 		i++;
 		a++;
